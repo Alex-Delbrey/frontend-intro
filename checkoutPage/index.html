@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coffee Masters</title>
+  <link href="css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <nav class="page-header">
+    <h1>
+      <img src="https://btholt.github.io/complete-intro-to-web-dev-v3/images/coffee_masters_logo.png"
+        alt="coffee_masters_logo" class="logo" />
+      Coffee Masters
+    </h1>
+  </nav>
+  <div class="page">
+    <section class="default-box items">
+      <h2 class="box-title">ITEMS</h2>
+      <ul class="items-list">
+        <br>
+        <li class="item">
+          <div class="item-amount bold">1x</div>
+          <div class="item-name bold">Cappucino</div>
+          <div class="item-price bold">$6.00</div>
+          <div class="item-description">Light Foam</div>
+        </li>
+        <li class="item">
+          <div class="item-amount bold">1x</div>
+          <div class="item-name bold">Cappucino</div>
+          <div class="item-price bold">$7.90</div>
+          <div class="item-description">Almond Milk</div>
+        </li>
+        <li class="item no-bottom-border">
+          <div class="item-amount bold">2x</div>
+          <div class="item-name bold">Croissant</div>
+          <div class="item-price bold">$5.37</div>
+          <div class="item-description">Butter</div>
+        </li>
+      </ul>
+    </section>
+    <section class="payment">
+      <div class="default-box name-box">
+        <h2 class="box-title">NAME</h2>
+        <div class="input-group">
+          <label for="orderName" class="input-label">Name for order</label>
+          <input id="orderName" class="input-text" />
+        </div>
+      </div>
+      <div class="default-box payment-box">
+        <h2 class="box-title">PAYMENT</h2>
+        <div class="input-group">
+          <label for="cardNumber" class="input-label">Card number</label>
+          <input id="cardNumber" class="input-text" />
+        </div>
+        <div class="input-group">
+          <label for="ccvNumber" class="input-label">CCV number</label>
+          <input id="ccvNumber" class="input-text mid-width" />
+        </div>
+      </div>
+    </section>
+    <section class="total">
+      <table class="table-total">
+        <tbody>
+          <tr>
+            <td>Subtotal:</td>
+            <td>$19.27</td>
+          </tr>
+          <tr>
+            <td>Tax:</td>
+            <td>$0.96</td>
+          </tr>
+          <tr class="bold">
+            <td>Total:</td>
+            <td>$20.23</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <button type="submit" class="submit-order">Place order</button>
+  </div>
+</body>
+
+</html>
