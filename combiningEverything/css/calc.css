@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  margin-top: 50px;
+  padding: 0;
+  background-color: darkolivegreen;
+  justify-items: center;
+  align-content: center;
+}
+
+button {
+  height: 50px;
+  background-color: gray;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.calc-box {
+  display: grid;
+  row-gap: 1px;
+  column-gap: 1px;
+  width: 200px;
+  color: white;
+  justify-content: center;
+
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "total total total total"
+    "clear clear del div"
+    "seven eight nine mult"
+    "four five six minus"
+    "one two three plus"
+    "zero zero zero equal";
+}
+
+.total {
+  display: flex;
+  grid-area: total;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background-color: black;
+  height: 70px;
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.clear {
+  grid-area: clear;
+}
+
+.del {
+  grid-area: del;
+  font-size: 30px;
+}
+
+.div {
+  grid-area: div;
+  background-color: orange;
+}
+
+.seven {
+  grid-area: seven;
+}
+
+.eight {
+  grid-area: eight;
+}
+
+.nine {
+  grid-area: nine;
+}
+
+.mult {
+  grid-area: mult;
+  background-color: orange;
+}
+
+.four {
+  grid-area: four;
+}
+
+.five {
+  grid-area: five;
+}
+
+.six {
+  grid-area: six;
+}
+
+.minus {
+  grid-area: minus;
+  background-color: orange;
+}
+
+.one {
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
+.three {
+  grid-area: three;
+}
+
+.plus {
+  grid-area: plus;
+  background-color: orange;
+}
+
+.zero {
+  grid-area: zero;
+}
+
+.equal {
+  grid-area: equal;
+  background-color: orange;
+}
