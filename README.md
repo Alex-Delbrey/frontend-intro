@@ -5,6 +5,7 @@ Started taking some courses from [frontendMasters](frontendmasters.com)
 
 ## checkoutPage
 This is a simple checkout page for coffee masters page.
+![Checkout Page](./readmeImages/checkoutPage.png)
 
 ## combiningEverything
 This is a simple calculator app. Made with js, html, and css.
