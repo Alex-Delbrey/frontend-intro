@@ -14,4 +14,5 @@ I just made it work, I'll cleanup the code later :)
 
 ## myPage
 Starting to create my very own page as my side project.
+**UNDER CONSTRUCTION**
 ![My Page](./readmeImages/myPage.png)
