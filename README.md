@@ -10,6 +10,8 @@ This is a simple checkout page for coffee masters page.
 ## combiningEverything
 This is a simple calculator app. Made with js, html, and css.
 I just made it work, I'll cleanup the code later :) 
+![Combining Everything](./readmeImages/calc.png)
 
 ## myPage
 Starting to create my very own page as my side project.
+![My Page](./readmeImages/myPage.png)
