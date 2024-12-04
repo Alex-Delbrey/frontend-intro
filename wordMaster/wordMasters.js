@@ -7,6 +7,11 @@ function isLetter(letter) {
   return /^[a-zA-Z]$/.test(letter);
 };
 
+// TODO:
+// - save word attempt.
+// - force user to hit enter after 5th letter
+// - user goes to next attempt after enter 
+//  if not in last attempt
 function gameLogic() {
   document.addEventListener("keydown", function(event) {
     if (isLetter(event.key)) {
@@ -31,7 +36,7 @@ async function init() {
 
   const promise = await fetch(WORD_URL);
   const wordObject = await promise.json();
-  // let wordAnswer = wordObject.word;
+  let wordAnswer = wordObject.word;
 
   gameLogic();
 
