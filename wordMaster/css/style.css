@@ -13,36 +13,24 @@
 }
 
 .box {
-  border-width: 5px;
-  padding: 8px;
-  width: 60px;
-  height: 50px;
-  font-size: 25px;
+  height: 45px;
+  width: 45px;
+  font-size: 30px;
+  text-transform: uppercase;
+  border: 3px solid #ccc;
   font-weight: bold;
-  text-align: center;
-}
-
-.row-end {}
-
-.last-box {}
-
-.box-row {
-  grid-area: boxrow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .all-boxes {
   display: grid;
-  row-gap: 10px;
   width: 100%;
-  padding: 0;
-  grid-template-columns: 0.08fr 0.08fr 0.08fr 0.08fr;
-  grid-template-areas:
-    "box box box box box"
-    "box box box box box"
-    "box box box box box"
-    "box box box box box"
-    "box box box box box"
-    "box box box box box"
-    "box box box box box";
-  justify-content: center;
+  max-width: 295px;
+  margin: 10px auto;
+  row-gap: 10px;
+  column-gap: 5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  align-content: center;
 }
