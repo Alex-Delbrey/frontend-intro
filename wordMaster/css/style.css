@@ -22,9 +22,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: border 2s;
 }
 
-/*TODO  */
 .all-boxes {
   display: grid;
   width: 100%;
@@ -35,3 +35,9 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   align-content: center;
 }
+
+/* TODO */
+/* .box.box-color { */
+/*   transition-behavior: red #ccc; */
+/*   border: 3px solid red; */
+/* } */

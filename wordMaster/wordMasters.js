@@ -28,34 +28,46 @@ async function validateWord(wordToValidate) {
   return validatedWord.validWord;
 }
 
+function compareGuess(guess, answer) {
+  return guess === answer;
+};
+
+function gameState(isValidWord, wordAnswer) {
+  if (!isValidWord) {
+    // document
+    //   .getElementById(boxName + (i - 1))
+    //   .classList
+    //   .add("box-color");
+    alert("Word is not a word, ya herd?");
+  } else if (compareGuess(wordGuess, wordAnswer)) {
+    alert("Congrats, you won!");
+  } else if (i === 31) {
+    alert("GAME ENDED, GET OUTTA HERE");
+  } else {
+    wordGuess = "";
+    endOfWord = false;
+    console.log("Word is valid, but not the answer");
+  }
+};
+
 // TODO:
-// - CANNOT backspace after valid attempt
-// - compare wordGuess to wordAnswer
-// - change alert message
-// - officialize the end of the game when user wins 
 // OR when user runs out of guesses
 // -> if valid word: 
 // --> paint green if letter is in correct place
 // --> paint yellow if letter is part of answer but incorrect spot
-function gameLogic() {
+// turn all boxes from white to red, then 
+// red to white WHEN word is invalid
+function gameLogic(wordAnswer) {
   document.addEventListener("keydown", function(event) {
     if (endOfWord) {
       if (event.key === "Enter") {
         validateWord(wordGuess).then(
           (isValid) => {
-            if (isValid) {
-              wordGuess = "";
-              endOfWord = false;
-            } else {
-              alert("Word is not a word, ya herd?");
-            }
+            gameState(isValid, wordAnswer);
           });
       } else if (event.key === "Backspace") {
         backspace();
         endOfWord = false;
-      }
-      if (i === 31) {
-        alert("GAME ENDED, GET OUTTA HERE");
       }
     } else if (isLetter(event.key)) {
       wordGuess += event.key;
@@ -66,7 +78,7 @@ function gameLogic() {
         .getElementById(boxName + i)
         .innerText = event.key;
       i++;
-    } else if (event.key === "Backspace") {
+    } else if (event.key === "Backspace" && wordGuess != "") {
       backspace();
     } else {
       event.preventDefault();
@@ -78,7 +90,7 @@ async function init() {
   const promise = await fetch(WORD_URL);
   const wordObject = await promise.json();
   let wordAnswer = wordObject.word;
-  gameLogic();
+  gameLogic(wordAnswer);
 }
 
 init();
