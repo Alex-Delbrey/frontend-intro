@@ -20,4 +20,6 @@ Starting to create my very own page as my side project.
 ## wordMaster
 Final project of Brian Holt's "Complete Intro to Web Develpment, v3". 
 This is a wordle game. Core purpose is to learn how to call APIs with JS.
+Added a downloadable video of the game, having issues while 
+trying to create GIFs with my machine.
 ![Wordle Game](./readmeImages/wordleVid.webm)
