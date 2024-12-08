@@ -1,8 +1,9 @@
 const WORD_URL = "https://words.dev-apis.com/word-of-the-day";
 const VALIDATE_URL = "https://words.dev-apis.com/validate-word";
-const boxName = "box-";
+const EMPTY_STRING = "";
+const BOX_NAME = "box-";
 let i = 1;
-let wordGuess = "";
+let wordGuess = EMPTY_STRING;
 let endOfWord = false;
 
 function isLetter(letter) {
@@ -14,8 +15,8 @@ function backspace() {
     i--;
   }
   document
-    .getElementById(boxName + i)
-    .innerText = "";
+    .getElementById(BOX_NAME + i)
+    .innerText = EMPTY_STRING;
   wordGuess = wordGuess.substring(0, wordGuess.length - 1);
 }
 
@@ -28,35 +29,63 @@ async function validateWord(wordToValidate) {
   return validatedWord.validWord;
 }
 
-function compareGuess(guess, answer) {
+function isAnswer(guess, answer) {
   return guess === answer;
 };
 
 function gameState(isValidWord, wordAnswer) {
   if (!isValidWord) {
-    // document
-    //   .getElementById(boxName + (i - 1))
-    //   .classList
-    //   .add("box-color");
-    alert("Word is not a word, ya herd?");
-  } else if (compareGuess(wordGuess, wordAnswer)) {
+    for (let wg = 0; wg < wordGuess.length; wg++) {
+      document
+        .getElementById(BOX_NAME + ((i - 5) + wg))
+        .classList
+        .add("box-red");
+    }
+  } else if (isAnswer(wordGuess, wordAnswer)) {
+    wordParser(wordAnswer);
     alert("Congrats, you won!");
   } else if (i === 31) {
     alert("GAME ENDED, GET OUTTA HERE");
   } else {
-    wordGuess = "";
+    wordParser(wordAnswer);
+    wordGuess = EMPTY_STRING;
     endOfWord = false;
-    console.log("Word is valid, but not the answer");
   }
 };
 
-// TODO:
-// OR when user runs out of guesses
-// -> if valid word: 
-// --> paint green if letter is in correct place
-// --> paint yellow if letter is part of answer but incorrect spot
-// turn all boxes from white to red, then 
-// red to white WHEN word is invalid
+function wordParser(wordAnswer) {
+  let word = wordAnswer;
+  for (let wg = 0; wg < wordGuess.length; wg++) {
+    for (let wa = 0; wa < wordAnswer.length; wa++) {
+      if (wordGuess.charAt(wg) === wordAnswer.charAt(wa) && wg === wa
+        && word.includes(wordGuess.charAt(wg))) {
+
+        word = word.replace(wordGuess.charAt(wg), EMPTY_STRING);
+        document
+          .getElementById(BOX_NAME + ((i - 5) + wg))
+          .classList
+          .add("box-green");
+        break;
+      } else if (wordGuess.charAt(wg) === wordAnswer.charAt(wa)
+        && word.includes(wordGuess.charAt(wg))) {
+
+        word = word.replace(wordGuess.charAt(wg), EMPTY_STRING);
+        document
+          .getElementById(BOX_NAME + ((i - 5) + wg))
+          .classList
+          .add("box-yellow");
+        break;
+      } else if (wa === wordAnswer.length - 1) {
+        document
+          .getElementById(BOX_NAME + ((i - 5) + wg))
+          .classList
+          .add("box-grey");
+        break;
+      }
+    }
+  }
+}
+
 function gameLogic(wordAnswer) {
   document.addEventListener("keydown", function(event) {
     if (endOfWord) {
@@ -75,10 +104,10 @@ function gameLogic(wordAnswer) {
         endOfWord = true;
       }
       document
-        .getElementById(boxName + i)
+        .getElementById(BOX_NAME + i)
         .innerText = event.key;
       i++;
-    } else if (event.key === "Backspace" && wordGuess != "") {
+    } else if (event.key === "Backspace" && wordGuess != EMPTY_STRING) {
       backspace();
     } else {
       event.preventDefault();
