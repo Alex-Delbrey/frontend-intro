@@ -12,11 +12,6 @@ This is a simple calculator app. Made with js, html, and css.
 I just made it work, I'll cleanup the code later :) 
 ![Combining Everything](./readmeImages/calc.png)
 
-## myPage
-Starting to create my very own page as my side project.
-**UNDER CONSTRUCTION**
-![My Page](./readmeImages/myPage.png)
-
 ## wordMaster
 Final project of Brian Holt's "Complete Intro to Web Develpment, v3". 
 This is a wordle game. Core purpose is to learn how to call APIs with JS.
